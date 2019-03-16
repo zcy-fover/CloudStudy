@@ -9,6 +9,7 @@
         <module>eureka-client</module>
         <module>cloud-war</module>
         <module>cloud-web</module>
+        <module>cloud-service</module>
     </modules>
 
     <parent>
@@ -25,6 +26,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <spring.cloud.version>Greenwich.SR1</spring.cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -44,11 +46,16 @@
                 <artifactId>cloud-war</artifactId>
                 <version>1.0.0</version>
             </dependency>
+            <dependency>
+                <groupId>com.zcyfover</groupId>
+                <artifactId>cloud-service</artifactId>
+                <version>1.0.0</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR1</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

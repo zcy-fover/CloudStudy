@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: cloud-study
+server:
+  port: 8764
+
