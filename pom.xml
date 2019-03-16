@@ -7,6 +7,8 @@
     <modules>
         <module>eureka-server</module>
         <module>eureka-client</module>
+        <module>cloud-war</module>
+        <module>cloud-web</module>
     </modules>
 
     <parent>
@@ -36,6 +38,19 @@
                 <groupId>com.zcyfover</groupId>
                 <artifactId>eureka-server</artifactId>
                 <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zcyfover</groupId>
+                <artifactId>cloud-war</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
