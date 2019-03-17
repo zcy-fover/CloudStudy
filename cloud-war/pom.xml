@@ -27,6 +27,12 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.zcyfover</groupId>
+            <artifactId>cloud-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
