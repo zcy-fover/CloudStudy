@@ -1,7 +1,5 @@
----
 server:
   port: 8761
-
 eureka:
   instance:
     hostname: localhost
@@ -11,19 +9,34 @@ eureka:
     fetch-registry: false
     service-url:
       defaultZone: ${eureka.instance.hostname}:${server.port}/eureka-server/
+
+
+#---
+#server:
+#  port: 8762
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: ${eureka.instance.hostname}:${server.port}/eureka-server/
+#spring:
+#  main:
+#    allow-bean-definition-overriding: true
 spring:
-  profiles: port-8761-config
-
-
----
-server:
-  port: 8762
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: ${eureka.instance.hostname}:${server.port}/eureka-server/
+  security:
+    user:
+      name: zcy
+      password: zcy
+  freemarker:
+    template-loader-path: classpath:/templates/
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html; charset=utf-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
