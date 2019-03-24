@@ -3,14 +3,15 @@ server:
   port: 8761
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer1
   client:
     # 默认情况下，eureka会像自己注册，将下面两个属性设置为false
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: ${eureka.instance.hostname}:${server.port}/eureka-server/
+      defaultZone: http://peer2:8762/eureka/
 spring:
+  profiles: peer1
   main:
     allow-bean-definition-overriding: true
   security:
@@ -24,14 +25,15 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer2
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: ${eureka.instance.hostname}:${server.port}/eureka-server/
+      defaultZone: http://peer1:8761/eureka/
 
 spring:
+  profiles: peer2
   main:
     allow-bean-definition-overriding: true
   security:
