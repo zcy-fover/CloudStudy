@@ -11,7 +11,7 @@ public class RibbonService {
     RestTemplate restTemplate;
 
     public String sayHello(String name) {
-        String url = "http://eureka-client/hi?name=" + name;
+        String url = "http://eureka-client/eureka-client/hi?name=" + name;
         return restTemplate.getForObject(url, String.class);
     }
 

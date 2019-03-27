@@ -3,6 +3,8 @@ spring:
     name: cloud-study
 server:
   port: 8764
+  servlet:
+    context-path: /cloud-study
 eureka:
   client:
     service-url:
