@@ -43,6 +43,16 @@
 ### Feign
 
 - 简化 Java Http 客户端远程调用
+- Feign 采用的是http网络交互，可以采用`feign-httpclient`或者`okhttp`做网络请求框架，只需要在pom中添加相关依赖即可。
+- Feign中负载均衡也是通过Ribbon来实现的。
+- Feign请求过程
+
+  1. 通过 @EnableFeignClients 注解开启FeignClient功能；
+  2. 根据Feign的规则实现接口，并在接口上面加上 @FeignClient 注解；
+  3. 程序启动自动扫描 @FeignClient 注解的类，并注入到IoC容器；
+  4. 当接口的方法被调用时，通过JDK代理生成具体的 requestTemplate 对象，生成 http 请求的 request 对象；
+  5. 将 request 对象交给 Client 去处理，可以使用 HttpUrlConnection 、HttpClient 或 OkHttp；
+  6. 最后 Client 被封装到 LoadBalanceClient 类，这个类结合 Ribbon 实现负载均衡。
 
 ### Hystrix
 
