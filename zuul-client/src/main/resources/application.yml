@@ -1,0 +1,37 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/
+
+server:
+  port: 5000
+
+spring:
+  application:
+    name: zuul-client
+
+# zuul结合了ribbon自动实现了负载均衡
+# 如果不需要负载均衡可以手动指定url
+#zuul:
+#  routes:
+#    hiapi:
+#      path: /hiapi/**
+#      url: http://peer1:8761/eureka/
+
+# 将ribbon置为false，然后手动注册服务地址URL，也可以实现
+#ribbon:
+#  eager-load:
+#    enabled: false
+#hiapi-v1:
+#  ribbon:
+#    listOfServers: http://localhost:8080,http://localhost:8081
+
+
+zuul:
+  routes:
+    hiapi:
+      path: /hiapi/**
+      serviceId: eureka-client
+    feignapi:
+      path: /feignapi/**
+      serviceId: feign-client

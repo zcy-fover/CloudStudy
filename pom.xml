@@ -10,6 +10,7 @@
         <module>cloud-web</module>
         <module>cloud-service</module>
         <module>feign-client</module>
+        <module>zuul-client</module>
     </modules>
     <groupId>com.zcyfover</groupId>
     <artifactId>spring-cloud</artifactId>

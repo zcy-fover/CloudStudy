@@ -47,12 +47,14 @@
 - Feign中负载均衡也是通过Ribbon来实现的。
 - Feign请求过程
 
-  1. 通过 @EnableFeignClients 注解开启FeignClient功能；
-  2. 根据Feign的规则实现接口，并在接口上面加上 @FeignClient 注解；
-  3. 程序启动自动扫描 @FeignClient 注解的类，并注入到IoC容器；
-  4. 当接口的方法被调用时，通过JDK代理生成具体的 requestTemplate 对象，生成 http 请求的 request 对象；
-  5. 将 request 对象交给 Client 去处理，可以使用 HttpUrlConnection 、HttpClient 或 OkHttp；
-  6. 最后 Client 被封装到 LoadBalanceClient 类，这个类结合 Ribbon 实现负载均衡。
+
+> - 通过 @EnableFeignClients 注解开启FeignClient功能；
+> - 根据Feign的规则实现接口，并在接口上面加上 @FeignClient 注解；
+> - 程序启动自动扫描 @FeignClient 注解的类，并注入到IoC容器；
+> - 当接口的方法被调用时，通过JDK代理生成具体的 requestTemplate 对象，生成 http 请求的 request 对象；
+> - 将 request 对象交给 Client 去处理，可以使用 HttpUrlConnection 、HttpClient 或 OkHttp；
+> - 最后 Client 被封装到 LoadBalanceClient 类，这个类结合 Ribbon 实现负载均衡。
+
 - Feign 可以直接配置 Hystrix 熔断器
 
 ### Hystrix
@@ -75,3 +77,14 @@
 - #### 测试
 
 > 执行请求中，断开两个服务提供方的其中一个，在短时间内的请求上仍然可以负载到 done 掉的服务上。在停止两个服务提供方后则会执行 fallback 配置的方法。
+
+### Zuul
+
+- #### 作用
+
+> - Zuul、Ribbon 以及 Eureka 结合，可以实现智能路由和负载均衡，Zuul能够将请求流量按照某种策略分发到集群状态的多个服务实例；
+> - 网关将所有的服务 API 接口统一聚合，并统一对外暴露。外界系统无需关注内部服务，也保护了内部的微服务单元避免敏感信息对外暴露；
+> - 服务网关做用户身份认证和权限控制，防止非法请求操作API接口；
+> - 网关实现监控功能，实时日志输出，对请求做记录；
+> - 网关可以实现流量监控，在高流量的情况下，实现降级；
+> - API 接口从内部服务分离处理，方便做测试
