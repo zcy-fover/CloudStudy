@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * 远程服务方法，注册需要的远程服务方法
+ * 远程服务方法，注册需要的远程服务方法;
+ * 在配置文件中开启hystrix配置，这里自定义熔断后的fallback执行类
  * 注解@FeignClient中的Value表示远程服务名
  * @author zcy-fover
  */
-@FeignClient(value = "eureka-client", configuration = FeignConfig.class)
+@FeignClient(value = "eureka-client", configuration = FeignConfig.class, fallback = MyHystrix.class)
 public interface EurekaClientFeign {
 
     /**
