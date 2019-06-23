@@ -12,6 +12,7 @@
         <module>feign-client</module>
         <module>zuul-client</module>
         <module>zipkin-server</module>
+        <module>springboot-security</module>
     </modules>
     <groupId>com.zcyfover</groupId>
     <artifactId>spring-cloud</artifactId>

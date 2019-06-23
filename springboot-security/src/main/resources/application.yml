@@ -1,0 +1,7 @@
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  application:
+    name: springboot-security
